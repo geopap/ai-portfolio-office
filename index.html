@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src https://api.anthropic.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>AI Portfolio Office</title>
+  <meta name="description" content="An AI-enabled Strategic Portfolio Office: portfolio governance, value tracking, stage-gate decisions and a human-in-the-loop PMO agent with built-in AI governance controls.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#view">Skip to content</a>
+  <aside class="sidebar">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="8" class="brand-bg"/><path d="M8 22 L13 15 L17 18 L24 9" class="brand-line"/><circle cx="24" cy="9" r="2.5" class="brand-dot"/></svg>
+      <div><b>AI Portfolio Office</b><span>Strategic PMO · demo</span></div>
+      <button id="menu" class="menu" aria-label="Toggle navigation">☰</button>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <div class="nav-group">Portfolio</div>
+      <a href="#/overview">Overview</a>
+      <a href="#/portfolio">Initiatives</a>
+      <a href="#/value">Value &amp; business cases</a>
+      <a href="#/prioritise">Prioritisation</a>
+      <a href="#/dependencies">Dependencies</a>
+      <a href="#/capacity">Capacity</a>
+      <div class="nav-group">PMO agent</div>
+      <a href="#/agent">Agent cycle <span id="cycle-status" class="cycle-status"></span></a>
+      <a href="#/report">Board report</a>
+      <div class="nav-group">Trust</div>
+      <a href="#/governance">AI governance</a>
+      <a href="#/audit">Audit trail &amp; data</a>
+      <a href="#/about">About</a>
+    </nav>
+    <div class="sidebar-foot">
+      <button id="theme" class="btn ghost small" aria-label="Toggle dark mode">◐ Theme</button>
+      <p>Synthetic data · fictional company</p>
+    </div>
+  </aside>
+  <main id="view" tabindex="-1"><noscript>This demo needs JavaScript.</noscript></main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

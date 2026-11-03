@@ -1,0 +1,13 @@
+{
+  "name": "ai-portfolio-office",
+  "version": "1.0.0",
+  "description": "An AI-enabled Strategic Portfolio Office: portfolio governance, value tracking and a human-in-the-loop PMO agent with built-in AI governance controls.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": { "node": ">=20" }
+}
