@@ -46,7 +46,7 @@ export function bind({ root, state, refresh, replaceState }) {
       state.cycle = { status: 'not started', steps: {}, reviewer: '', comment: '', decidedAt: null };
       state.narrative = null;
       await log(state, 'user', append ? 'INITIATIVES_ADDED' : 'PORTFOLIO_IMPORTED', `${data.length} initiatives ${append ? 'added from' : 'imported from'} ${f.name.slice(0, 80)}: ${data.map((i) => i.id).join(', ').slice(0, 200)}`);
-      toast(`${data.length} initiatives ${append ? 'added' : 'imported'}. Re-run the agent cycle.`);
+      toast(`${data.length} initiative${data.length === 1 ? '' : 's'} ${append ? 'added' : 'imported'}. Re-run the agent cycle.`);
       refresh();
     } catch (err) { toast('Import failed: ' + err.message); }
   }));
