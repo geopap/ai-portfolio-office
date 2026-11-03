@@ -23,6 +23,6 @@ export function render() {
         <li>Override a recommendation, then sign off the pack.</li>
         <li>Open the <a href="#/report">board report</a> and print it to PDF.</li>
         <li>Verify the hash chain on the <a href="#/audit">audit trail</a>.</li></ol>
-        <p class="small muted">All data is synthetic. Lumera Group is a fictional company. State is stored only in your browser.</p>`)}
+        <p class="small muted">All data is synthetic. Varnholt Group is a fictional company. State is stored only in your browser.</p>`)}
     </div>`;
 }

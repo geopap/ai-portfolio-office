@@ -94,7 +94,7 @@ Built by **George Papadongonas**, a digital leader focused on **AI value creatio
 
 This project shows how I approach that. I start from the business problem. I build the operating model and the value case. I put AI where it removes real work, and I design the controls in from day one, not bolted on afterwards.
 
-*All data in this repository is synthetic. **Lumera Group** is a fictional company. Any resemblance to real organisations or people is coincidental. The regulatory mapping is indicative and is not legal advice.*
+*All data in this repository is synthetic. **Varnholt Group** is a fictional company. Any resemblance to real organisations or people is coincidental. The regulatory mapping is indicative and is not legal advice.*
 
 ## License
 

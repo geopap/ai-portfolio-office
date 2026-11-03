@@ -19,7 +19,11 @@ export function freshState() {
 export function load() {
   try {
     const raw = localStorage.getItem(KEY);
-    if (raw) return { ...freshState(), ...JSON.parse(raw) };
+    if (raw) {
+      const saved = JSON.parse(raw);
+      // Company details always come from data.js, never from an older saved copy.
+      return { ...freshState(), ...saved, portfolio: { ...saved.portfolio, company: COMPANY } };
+    }
   } catch { /* storage unavailable or corrupt — start fresh */ }
   return freshState();
 }

@@ -21,7 +21,7 @@ export function render({ state }) {
       ${section('Portfolio data', `<p class="small">Export the full portfolio as JSON, edit it, and import it again — or use the CSV status request on the agent page for monthly updates.</p>
         <div class="row"><button class="btn ghost" id="export-json">Export portfolio (JSON)</button>
         <label class="btn ghost file">Import portfolio (JSON)<input type="file" id="import-json" accept=".json,application/json" hidden></label></div>`)}
-      ${section('Reset the demo', `<p class="small">Restore the synthetic Lumera Group portfolio and clear the cycle, overrides and audit log stored in this browser.</p>
+      ${section('Reset the demo', `<p class="small">Restore the synthetic Varnholt Group portfolio and clear the cycle, overrides and audit log stored in this browser.</p>
         <button class="btn danger" id="reset">Reset demo data</button>`)}
     </div>`;
 }

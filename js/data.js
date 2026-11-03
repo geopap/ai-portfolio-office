@@ -2,7 +2,7 @@
 // Every name, figure and initiative below is invented for demonstration purposes.
 
 export const COMPANY = {
-  name: 'Lumera Group',
+  name: 'Varnholt Group',
   tagline: 'Home energy & smart living · 9 European markets',
   markets: ['DE', 'AT', 'CH', 'NL', 'BE', 'PL', 'IT', 'ES', 'SE'],
 };
