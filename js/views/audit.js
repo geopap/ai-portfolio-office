@@ -20,7 +20,9 @@ export function render({ state }) {
     <div class="grid-2">
       ${section('Portfolio data', `<p class="small">Export the full portfolio as JSON, edit it, and import it again — or use the CSV status request on the agent page for monthly updates.</p>
         <div class="row"><button class="btn ghost" id="export-json">Export portfolio (JSON)</button>
-        <label class="btn ghost file">Import portfolio (JSON)<input type="file" id="import-json" accept=".json,application/json" hidden></label></div>`)}
+        <label class="btn ghost file">Replace portfolio (JSON)<input type="file" class="import-json" data-mode="replace" accept=".json,application/json" hidden></label>
+        <label class="btn ghost file">Add to portfolio (JSON)<input type="file" class="import-json" data-mode="append" accept=".json,application/json" hidden></label></div>
+        <p class="small muted">Approved AI use cases from <a href="https://geopap.github.io/ai-use-case-intake/" target="_blank" rel="noopener">AI Use-Case Intake</a> can be added here. Existing IDs are updated, new ones appended.</p>`)}
       ${section('Reset the demo', `<p class="small">Restore the synthetic Varnholt Group portfolio and clear the cycle, overrides and audit log stored in this browser.</p>
         <button class="btn danger" id="reset">Reset demo data</button>`)}
     </div>`;
@@ -31,22 +33,23 @@ export function bind({ root, state, refresh, replaceState }) {
   $('#verify').addEventListener('click', async () => { verdict = await verifyChain(state.audit); refresh(); });
   $('#export-log').addEventListener('click', () => download('audit-log.json', JSON.stringify(state.audit, null, 2), 'application/json'));
   $('#export-json').addEventListener('click', () => download('portfolio.json', JSON.stringify(state.portfolio.initiatives, null, 2), 'application/json'));
-  $('#import-json').addEventListener('change', async (e) => {
+  root.querySelectorAll('.import-json').forEach((input) => input.addEventListener('change', async (e) => {
     const f = e.target.files[0];
     if (!f) return;
+    const append = input.dataset.mode === 'append';
     try {
       if (f.size > 2_000_000) throw new Error('file too large');
       const data = JSON.parse(await f.text());
       if (!Array.isArray(data) || !data.every(validInitiative)) throw new Error('not a valid initiative list');
-      state.portfolio.initiatives = data;
+      state.portfolio.initiatives = append ? mergeById(state.portfolio.initiatives, data) : data;
+      if (!append) state.overrides = {};
       state.cycle = { status: 'not started', steps: {}, reviewer: '', comment: '', decidedAt: null };
       state.narrative = null;
-      state.overrides = {};
-      await log(state, 'user', 'PORTFOLIO_IMPORTED', `${data.length} initiatives imported from ${f.name.slice(0, 80)}`);
-      toast(`${data.length} initiatives imported.`);
+      await log(state, 'user', append ? 'INITIATIVES_ADDED' : 'PORTFOLIO_IMPORTED', `${data.length} initiatives ${append ? 'added from' : 'imported from'} ${f.name.slice(0, 80)}: ${data.map((i) => i.id).join(', ').slice(0, 200)}`);
+      toast(`${data.length} initiatives ${append ? 'added' : 'imported'}. Re-run the agent cycle.`);
       refresh();
     } catch (err) { toast('Import failed: ' + err.message); }
-  });
+  }));
   $('#reset').addEventListener('click', async () => {
     if (!confirm('Reset all demo data in this browser?')) return;
     const s = freshState();
@@ -55,6 +58,13 @@ export function bind({ root, state, refresh, replaceState }) {
     save(s);
     replaceState(s);
   });
+}
+
+// Update initiatives whose ID already exists, append the rest.
+export function mergeById(current, incoming) {
+  const byId = new Map(current.map((i) => [i.id, i]));
+  for (const i of incoming) byId.set(i.id, { ...byId.get(i.id), ...i });
+  return [...byId.values()];
 }
 
 const RAG = ['G', 'A', 'R'];

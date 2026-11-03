@@ -85,3 +85,9 @@ test('narrative draft retries without fallbacks on 400 and surfaces refusals', a
   await assert.rejects(draftNarrative({ apiKey: 'test', model: 'claude-sonnet-5-5', analysis: a, fetchImpl }), /declined/);
   assert.equal(n, 2);
 });
+
+test('adding initiatives updates existing IDs and appends new ones', async () => {
+  const { mergeById } = await import('../js/views/audit.js');
+  const merged = mergeById([{ id: 'A', name: 'old' }, { id: 'B', name: 'b' }], [{ id: 'A', name: 'new' }, { id: 'C', name: 'c' }]);
+  assert.deepEqual(merged.map((i) => `${i.id}:${i.name}`), ['A:new', 'B:b', 'C:c']);
+});

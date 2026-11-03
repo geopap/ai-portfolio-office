@@ -2,7 +2,7 @@
 
 **An AI-enabled Strategic Portfolio Office: value-driven portfolio governance, with a human-in-the-loop PMO agent and built-in AI governance controls.**
 
-[**▶ Live demo**](https://geopap.github.io/ai-portfolio-office/) · [Operating model](docs/FRAMEWORK.md) · [AI governance](docs/AI-GOVERNANCE.md) · [Architecture](docs/ARCHITECTURE.md)
+[**▶ Live demo**](https://geopap.github.io/ai-portfolio-office/) · [Operating model](docs/FRAMEWORK.md) · [AI governance](docs/AI-GOVERNANCE.md) · [Architecture](docs/ARCHITECTURE.md) · Companion project: [AI Use-Case Intake](https://github.com/geopap/ai-use-case-intake)
 
 ![Portfolio overview](docs/screenshots/overview.png)
 
@@ -35,6 +35,7 @@ This project is a working reference implementation of the answer: a **lean Strat
 | **Board report** | A one-page, print-ready monthly report, watermarked as DRAFT until it is signed off |
 | **AI governance** | System card, EU AI Act classification, a 14-control framework mapped to **EU AI Act · ISO/IEC 42001 · NIST AI RMF**, an AI risk register and an AI inventory |
 | **Audit trail** | SHA-256 hash-chained log of every agent step and human decision, with one-click integrity verification |
+| **AI intake hand-over** | Approved use cases from [AI Use-Case Intake](https://geopap.github.io/ai-use-case-intake/) are added to the portfolio as initiatives (**Audit trail & data → Add to portfolio**) |
 
 ### What the agent catches
 
@@ -61,7 +62,7 @@ Run it locally (no build step, no dependencies):
 git clone https://github.com/geopap/ai-portfolio-office.git
 cd ai-portfolio-office
 python3 -m http.server 8080      # then open http://localhost:8080
-npm test                         # 22 tests: rules engine and governance controls (Node 20+)
+npm test                         # 23 tests: rules engine and governance controls (Node 20+)
 ```
 
 ## Screenshots
