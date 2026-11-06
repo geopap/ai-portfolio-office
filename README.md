@@ -22,6 +22,14 @@ This project is a working reference implementation of the answer: a **lean Strat
 
 > **Design principle: the agent prepares, a person decides.** Recommendations come from transparent, versioned rules. The language model only drafts prose, from pseudonymised facts. Nothing circulates without a named human sign-off, and every step goes into a tamper-evident audit trail.
 
+## Who it's for
+
+| | What they get |
+|---|---|
+| **Product leaders** | Roadmap and portfolio decisions tied to outcome KPIs and confirmed value, not to activity, with stop decisions that free capacity for what works |
+| **Technology leaders** | A lean delivery operating model: stage gates, capacity and dependency views across teams, budget control, and an agent that does the reporting work |
+| **AI governance and risk** | Human sign-off before anything circulates, pseudonymised model inputs, a grounding check, a tamper-evident audit trail and controls mapped to the EU AI Act, ISO/IEC 42001 and NIST AI RMF |
+
 ## What it does
 
 | Area | What you can see in the demo |
