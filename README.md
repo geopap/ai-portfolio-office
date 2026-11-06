@@ -2,7 +2,7 @@
 
 **An AI-enabled Strategic Portfolio Office: value-driven portfolio governance, with a human-in-the-loop PMO agent and built-in AI governance controls.**
 
-[**▶ Live demo**](https://geopap.github.io/ai-portfolio-office/) · [Operating model](docs/FRAMEWORK.md) · [AI governance](docs/AI-GOVERNANCE.md) · [Architecture](docs/ARCHITECTURE.md) · Companion projects: [AI Use-Case Intake](https://github.com/geopap/ai-use-case-intake) · [AI Eval Workbench](https://github.com/geopap/ai-eval-workbench)
+[**▶ Live demo**](https://geopap.github.io/ai-portfolio-office/) · [Operating model](docs/FRAMEWORK.md) · [AI governance](docs/AI-GOVERNANCE.md) · [Architecture](docs/ARCHITECTURE.md) · AI life cycle: decide with [AI Use-Case Intake](https://github.com/geopap/ai-use-case-intake) → build with [Claude Code SDLC](https://github.com/geopap/claude-code-sdlc) → prove with [AI Eval Workbench](https://github.com/geopap/ai-eval-workbench) → **govern**
 
 ![Portfolio overview](docs/screenshots/overview.png)
 
